@@ -234,7 +234,7 @@ internal fun convertTokenToPostfix(
         outputQueue.addLast(op)
     }
 
-    // Check if order of postfix is correct
+    //Check if order of postfix is correct
     /*outputQueue.forEachIndexed { index, input ->
         Log.d("SUCCESS", "the $index input is $input")
     }*/
