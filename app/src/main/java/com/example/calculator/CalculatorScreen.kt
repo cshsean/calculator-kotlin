@@ -111,7 +111,7 @@ fun DisplayScreen(
     val scrollState = rememberScrollState()
 
     LaunchedEffect(currentExpression, previousExpression) {
-        // Scroll to the end when text changes
+        //  Scroll to the end when text changes
         scrollState.scrollTo(scrollState.maxValue)
     }
 
