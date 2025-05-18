@@ -14,20 +14,14 @@ import kotlin.math.exp
 
 val operators = listOf('+', '-', '/', '×')
 
-class CalculatorViewModel(
-    private val savedStateHandle: SavedStateHandle
-): ViewModel() {
+class CalculatorViewModel(): ViewModel() {
     companion object {
         private const val DISPLAY_EXPRESSION_KEY = "display_expression"
     }
 
-    val displayExpression = mutableStateOf(
-        savedStateHandle.get<String>(DISPLAY_EXPRESSION_KEY) ?: ""
-    )
+    val displayExpression = mutableStateOf("")
 
-    val previousExpression = mutableStateOf(
-        savedStateHandle.get<String>(DISPLAY_EXPRESSION_KEY) ?: ""
-    )
+    val previousExpression = mutableStateOf("")
 
     var isCalculationsPresentBefore = false
     var errorPresent = false

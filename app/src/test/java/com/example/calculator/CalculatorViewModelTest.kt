@@ -20,72 +20,54 @@ class CalculatorViewModelTest {
     @Test fun testCase10() = assertEquals("2", viewModel.evaluateExpression("(((((1+1)))))"))
 
     // ❌ Rainy Case Scenarios
-    @Test fun testIncompleteExpression() {
-        assertFailsWith<Exception> {
-            viewModel.evaluateExpression("3+")
-        }
+    @Test
+    fun testIncompleteExpression() {
+        assertEquals("Error", viewModel.evaluateExpression("3+"))
     }
 
     @Test
     fun testUnexpectedParentheses() {
-        assertFailsWith<Exception> {
-            viewModel.evaluateExpression("()4+5")
-        }
+        assertEquals("Error", viewModel.evaluateExpression("()4+5"))
     }
 
     @Test
     fun testUnmatchedLeftParenthesis() {
-        assertFailsWith<Exception> {
-            viewModel.evaluateExpression("4+(5×2")
-        }
+        assertEquals("Error", viewModel.evaluateExpression("4+(5×2"))
     }
 
     @Test
     fun testDivisionByZero() {
-        assertFailsWith<ArithmeticException> {
-            viewModel.evaluateExpression("10/(5-5)")
-        }
+        assertEquals("Math Error", viewModel.evaluateExpression("10/(5-5)"))
     }
 
     @Test
     fun testInvalidDecimal() {
-        assertFailsWith<Exception> {
-            viewModel.evaluateExpression("..5+3")
-        }
+        assertEquals("Error", viewModel.evaluateExpression("..5+3"))
     }
 
     @Test
     fun testDoubleOperator() {
-        assertFailsWith<Exception> {
-            viewModel.evaluateExpression("5++2")
-        }
+        assertEquals("Error", viewModel.evaluateExpression("5++2"))
     }
 
     @Test
     fun testUnmatchedRightParenthesis() {
-        assertFailsWith<Exception> {
-            viewModel.evaluateExpression("(3+2))")
-        }
+        assertEquals("Error", viewModel.evaluateExpression("(3+2))"))
     }
 
     @Test
     fun testInvalidCharacters() {
-        assertFailsWith<Exception> {
-            viewModel.evaluateExpression("abc+1")
-        }
+        assertEquals("Error", viewModel.evaluateExpression("abc+1"))
     }
 
     @Test
     fun testInvalidNumberFormat() {
-        assertFailsWith<Exception> {
-            viewModel.evaluateExpression("5.5.5+2")
-        }
+        assertEquals("Error", viewModel.evaluateExpression("5.5.5+2"))
     }
 
     @Test
     fun testEmptyParentheses() {
-        assertFailsWith<Exception> {
-            viewModel.evaluateExpression("7×()")
-        }
+        assertEquals("Error", viewModel.evaluateExpression("7×()"))
     }
+
 }
